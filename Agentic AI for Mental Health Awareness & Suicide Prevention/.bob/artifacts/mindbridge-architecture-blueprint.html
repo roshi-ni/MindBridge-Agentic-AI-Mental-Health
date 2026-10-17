@@ -1,0 +1,331 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MindBridge Architecture</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #0f172a; color: #f1f5f9; font-size: 13px; }
+  .canvas { width: 760px; margin: 0 auto; padding: 2rem 1.5rem 2.5rem; }
+
+  /* Title */
+  .title-bar { text-align: center; margin-bottom: 2rem; }
+  .title-bar h1 { font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .title-bar p { font-size: .82rem; color: #94a3b8; margin-top: .25rem; }
+  .pill { display: inline-block; background: #1e40af; color: #bfdbfe; border-radius: 20px; padding: 2px 10px; font-size: .72rem; font-weight: 600; margin: .3rem .2rem 0; }
+  .pill.purple { background: #5b21b6; color: #ddd6fe; }
+  .pill.green  { background: #065f46; color: #6ee7b7; }
+
+  /* Layer label */
+  .layer-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #64748b; margin-bottom: .45rem; padding-left: .3rem; }
+
+  /* Row */
+  .row { display: flex; gap: .7rem; margin-bottom: .7rem; align-items: stretch; }
+
+  /* Box */
+  .box {
+    border-radius: 10px;
+    padding: .75rem .9rem;
+    flex: 1;
+    border: 1px solid;
+    position: relative;
+  }
+  .box h3 { font-size: .8rem; font-weight: 700; margin-bottom: .25rem; }
+  .box p, .box li { font-size: .74rem; line-height: 1.5; color: #cbd5e1; }
+  .box ul { padding-left: 1rem; }
+
+  /* Colour themes */
+  .blue   { background: #1e3a5f; border-color: #3b82f6; }
+  .blue   h3 { color: #93c5fd; }
+  .purple { background: #2d1b69; border-color: #8b5cf6; }
+  .purple h3 { color: #c4b5fd; }
+  .green  { background: #064e3b; border-color: #10b981; }
+  .green  h3 { color: #6ee7b7; }
+  .red    { background: #450a0a; border-color: #ef4444; }
+  .red    h3 { color: #fca5a5; }
+  .amber  { background: #451a03; border-color: #f59e0b; }
+  .amber  h3 { color: #fcd34d; }
+  .slate  { background: #1e293b; border-color: #475569; }
+  .slate  h3 { color: #cbd5e1; }
+  .indigo { background: #1e1b4b; border-color: #6366f1; }
+  .indigo h3 { color: #a5b4fc; }
+
+  /* Wide full-row box */
+  .full { flex: 1 1 100%; }
+
+  /* Arrow connector */
+  .arrow-row { display: flex; justify-content: center; align-items: center; gap: 1.2rem; margin: .15rem 0; }
+  .arrow-down { color: #475569; font-size: 1.1rem; text-align: center; }
+  .arrow-right { color: #475569; font-size: .9rem; }
+
+  /* IBM badge */
+  .ibm-badge { display: inline-block; background: #1d4ed8; color: #fff; border-radius: 5px; padding: 1px 7px; font-size: .68rem; font-weight: 800; margin-left: .35rem; vertical-align: middle; letter-spacing: .5px; }
+
+  /* Flow connector line */
+  .connector { border-left: 2px dashed #334155; margin-left: 50%; height: .5rem; }
+
+  /* Tag chip */
+  .chip { display: inline-block; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 6px; padding: 1px 7px; font-size: .68rem; color: #94a3b8; margin: 2px 2px 0 0; }
+
+  /* Section divider */
+  .divider { border: none; border-top: 1px solid #1e293b; margin: .6rem 0; }
+
+  footer { text-align: center; font-size: .7rem; color: #475569; border-top: 1px solid #1e293b; padding-top: 1rem; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  
+  <div class="title-bar">
+    <h1>💙 MindBridge — Architecture Blueprint</h1>
+    <p>Agentic AI for Mental Health Awareness &amp; Suicide Prevention</p>
+    <div style="margin-top:.5rem">
+      <span class="pill">IBM Granite 13B</span>
+      <span class="pill">IBM Watsonx.ai</span>
+      <span class="pill purple">RAG Pipeline</span>
+      <span class="pill green">Python 3.15</span>
+    </div>
+  </div>
+
+  
+  <div class="layer-label">① User Interface Layer</div>
+  <div class="row">
+    <div class="box indigo" style="flex:1">
+      <h3>💬 Chat Tab</h3>
+      <p>Real-time empathetic conversation with risk badges &amp; source citations</p>
+    </div>
+    <div class="box indigo" style="flex:1">
+      <h3>📓 Journal Tab</h3>
+      <p>Private free-writing with AI emotional tone analysis</p>
+    </div>
+    <div class="box indigo" style="flex:1">
+      <h3>📚 Resources Tab</h3>
+      <p>10 RAG-powered educational topic cards</p>
+    </div>
+    <div class="box indigo" style="flex:1">
+      <h3>📊 Insights Tab</h3>
+      <p>Plotly mood timeline + risk distribution chart</p>
+    </div>
+    <div class="box red" style="flex:1">
+      <h3>🆘 Crisis Tab</h3>
+      <p>Helplines, coping cards &amp; safety plan</p>
+    </div>
+  </div>
+
+  <div class="arrow-row"><div class="arrow-down">▼</div></div>
+
+  
+  <div class="layer-label">② Agentic Orchestration Layer</div>
+  <div class="row">
+    <div class="box purple full">
+      <h3>🤖 MindBridgeAgent  <span style="font-size:.7rem;color:#a78bfa;font-weight:400">agent.py</span></h3>
+      <div style="display:flex;gap:.6rem;margin-top:.4rem;flex-wrap:wrap">
+        <div style="flex:1;min-width:140px">
+          <p>• Session-aware conversation history</p>
+          <p>• Risk-aware prompt injection</p>
+          <p>• Journal entry analysis</p>
+        </div>
+        <div style="flex:1;min-width:140px">
+          <p>• Mood timeline tracking</p>
+          <p>• Proactive alert injection</p>
+          <p>• Crisis resource surfacing</p>
+        </div>
+        <div style="flex:1;min-width:140px">
+          <p>• Session summary &amp; trend</p>
+          <p>• Resource topic lookup</p>
+          <p>• Session reset management</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <div class="arrow-down">▼</div>
+    <div style="flex:1;border-top:1px dashed #334155;margin:0 .5rem"></div>
+    <div class="arrow-down">▼</div>
+    <div style="flex:1;border-top:1px dashed #334155;margin:0 .5rem"></div>
+    <div class="arrow-down">▼</div>
+  </div>
+
+  
+  <div class="layer-label">③ Core Intelligence Layer</div>
+  <div class="row">
+
+    
+    <div class="box amber" style="flex:1.1">
+      <h3>🎯 Distress Detector  <span style="font-size:.7rem;color:#fbbf24;font-weight:400">distress_detector.py</span></h3>
+      <hr class="divider" />
+      <p>• 6 keyword categories</p>
+      <p>• Severity-weighted scoring</p>
+      <p>• 5-tier risk classification</p>
+      <p style="margin-top:.4rem">
+        <span class="chip" style="color:#6ee7b7">NONE</span>
+        <span class="chip" style="color:#93c5fd">LOW</span>
+        <span class="chip" style="color:#fcd34d">MED</span>
+        <span class="chip" style="color:#fca5a5">HIGH</span>
+        <span class="chip" style="color:#f9a8d4">CRIT</span>
+      </p>
+      <hr class="divider" />
+      <h3 style="margin-top:.3rem">📈 Risk Predictor</h3>
+      <p>• Rolling-window avg (5 msgs)</p>
+      <p>• Escalation trend detection</p>
+      <p>• Proactive check-in alerts</p>
+    </div>
+
+    
+    <div class="box blue" style="flex:1.4">
+      <h3>🔍 RAG Pipeline  <span style="font-size:.7rem;color:#60a5fa;font-weight:400">rag_pipeline.py</span></h3>
+      <hr class="divider" />
+      <div style="display:flex;gap:.5rem;margin-top:.2rem">
+        <div style="flex:1">
+          <p style="color:#93c5fd;font-weight:600;font-size:.72rem">RETRIEVE</p>
+          <p>TF-IDF Vectorizer</p>
+          <p>Bigram indexing</p>
+          <p>Cosine similarity</p>
+          <p>22-doc KB indexed</p>
+        </div>
+        <div style="width:1px;background:#334155"></div>
+        <div style="flex:1">
+          <p style="color:#93c5fd;font-weight:600;font-size:.72rem">AUGMENT</p>
+          <p>Context injection</p>
+          <p>History window (6)</p>
+          <p>Risk instruction</p>
+          <p>Prompt templating</p>
+        </div>
+        <div style="width:1px;background:#334155"></div>
+        <div style="flex:1">
+          <p style="color:#93c5fd;font-weight:600;font-size:.72rem">GENERATE</p>
+          <p>IBM Granite call</p>
+          <p>Graceful fallback</p>
+          <p>Disclaimer inject</p>
+          <p>Source citations</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="box red" style="flex:1">
+      <h3>🆘 Crisis Manager  <span style="font-size:.7rem;color:#fca5a5;font-weight:400">crisis_manager.py</span></h3>
+      <hr class="divider" />
+      <p>• 5 India helplines</p>
+      <p>• 5 Intl helplines</p>
+      <p>• Safety Plan template</p>
+      <p>• Box Breathing card</p>
+      <p>• 5-4-3-2-1 Grounding</p>
+      <p>• Affirmations card</p>
+      <p>• Distraction card</p>
+      <p>• Twilio SMS (consent)</p>
+    </div>
+
+  </div>
+
+  <div class="arrow-row"><div class="arrow-down">▼</div></div>
+
+  
+  <div class="layer-label">④ Knowledge &amp; IBM Cloud Layer</div>
+  <div class="row">
+
+    <div class="box green" style="flex:1.2">
+      <h3>📚 Knowledge Base  <span style="font-size:.7rem;color:#6ee7b7;font-weight:400">knowledge_base.py</span></h3>
+      <hr class="divider" />
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.2rem">
+        <span class="chip">mindfulness</span>
+        <span class="chip">breathing</span>
+        <span class="chip">grounding</span>
+        <span class="chip">journaling</span>
+        <span class="chip">exercise</span>
+        <span class="chip">sleep</span>
+        <span class="chip">nutrition</span>
+        <span class="chip">depression</span>
+        <span class="chip">anxiety</span>
+        <span class="chip">burnout</span>
+        <span class="chip">crisis</span>
+        <span class="chip">therapy</span>
+        <span class="chip">stigma</span>
+        <span class="chip">youth</span>
+        <span class="chip">workplace</span>
+        <span class="chip">self-care</span>
+      </div>
+      <p style="margin-top:.5rem;color:#6ee7b7">22 articles · 8 categories</p>
+    </div>
+
+    <div class="box blue" style="flex:1.5">
+      <h3>☁️ IBM Watsonx.ai <span class="ibm-badge">IBM</span>  <span style="font-size:.7rem;color:#60a5fa;font-weight:400">watsonx_client.py</span></h3>
+      <hr class="divider" />
+      <div style="display:flex;gap:.6rem;margin-top:.2rem">
+        <div style="flex:1">
+          <p style="color:#93c5fd;font-weight:600;font-size:.72rem">AUTH</p>
+          <p>IAM Token endpoint</p>
+          <p>API Key auth</p>
+          <p>Auto token refresh</p>
+        </div>
+        <div style="width:1px;background:#334155"></div>
+        <div style="flex:1">
+          <p style="color:#93c5fd;font-weight:600;font-size:.72rem">MODEL</p>
+          <p>granite-13b-chat-v2</p>
+          <p>Greedy decoding</p>
+          <p>800 max tokens</p>
+        </div>
+        <div style="width:1px;background:#334155"></div>
+        <div style="flex:1">
+          <p style="color:#93c5fd;font-weight:600;font-size:.72rem">ENDPOINT</p>
+          <p>us-south.ml.cloud</p>
+          <p>REST API v1</p>
+          <p>Project scoped</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box slate" style="flex:.9">
+      <h3>⚙️ Config  <span style="font-size:.7rem;color:#94a3b8;font-weight:400">config.py</span></h3>
+      <hr class="divider" />
+      <p>• IBM API Key &amp; Project ID</p>
+      <p>• Risk thresholds</p>
+      <p>• Distress keywords</p>
+      <p>• Helpline registry</p>
+      <p>• Generation params</p>
+      <p>• Safe-msg disclaimer</p>
+    </div>
+
+  </div>
+
+  
+  <div style="background:#0f1f3d;border:1px solid #1e40af;border-radius:10px;padding:.9rem 1.1rem;margin-top:.5rem">
+    <div style="font-size:.72rem;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">⚡ Request Flow</div>
+    <div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">
+      <div style="background:#1e3a5f;border:1px solid #3b82f6;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#93c5fd">User Input</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#2d1b69;border:1px solid #8b5cf6;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#c4b5fd">Distress Detect</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#451a03;border:1px solid #f59e0b;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#fcd34d">Risk Score</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#1e3a5f;border:1px solid #3b82f6;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#93c5fd">TF-IDF Retrieve</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#1e3a5f;border:1px solid #3b82f6;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#93c5fd">Augment Prompt</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#1e1b4b;border:1px solid #4f46e5;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#a5b4fc">IBM Granite</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#064e3b;border:1px solid #10b981;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#6ee7b7">Response + Sources</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-top:.4rem">
+      <div style="background:#450a0a;border:1px solid #ef4444;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#fca5a5">HIGH/CRITICAL?</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#450a0a;border:1px solid #ef4444;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#fca5a5">Crisis Resources</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#450a0a;border:1px solid #ef4444;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#fca5a5">Helplines + Coping Cards</div>
+      <div style="color:#475569">  |  </div>
+      <div style="background:#451a03;border:1px solid #f59e0b;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#fcd34d">Proactive Alert?</div>
+      <div style="color:#475569">→</div>
+      <div style="background:#451a03;border:1px solid #f59e0b;border-radius:7px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#fcd34d">Check-In Message</div>
+    </div>
+  </div>
+
+  <footer>
+    MindBridge — Agentic AI for Mental Health  |  IBM Granite + Watsonx.ai  |  Made with IBM Bob
+  </footer>
+
+</div>
+</body>
+</html>
