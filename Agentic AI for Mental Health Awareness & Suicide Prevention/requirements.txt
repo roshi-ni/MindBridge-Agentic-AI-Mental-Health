@@ -1,0 +1,23 @@
+# Core ML & NLP
+sentence-transformers>=3.0.0
+numpy>=1.26.0
+scikit-learn>=1.5.0
+
+# IBM Cloud (REST-only — no SDK version cap)
+requests>=2.32.0
+
+# Vector store & data
+pandas>=2.2.0
+
+# UI
+streamlit>=1.37.0
+plotly>=5.22.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.8.0
+nltk>=3.8.0
+textblob>=0.18.0
+
+# Optional: SMS alerts
+# twilio>=9.2.0
